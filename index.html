@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buscador de Cuecas por Tono</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Buscador de Cuecas por Tono</h1>
+    <p>CUECANCIONERO CHORO</p>
+  </header>
+
+  <main class="contenedor">
+    <!-- SECCIÓN DE BÚSQUEDA -->
+    <section class="tarjeta">
+      <h2>Búsqueda por tono</h2>
+
+      <form id="form-busqueda">
+        <div class="grupo">
+          <label for="tono">Selecciona el tono</label>
+          <select id="tono">
+            <option value="">-- Elige un tono --</option>
+            <option value="Do">Do</option>
+            <option value="Re">Re</option>
+            <option value="Mi">Mi</option>
+            <option value="Fa">Fa</option>
+            <option value="Sol">Sol</option>
+            <option value="La">La</option>
+            <option value="Si">Si</option>
+            <option value="Do">Dom</option>
+            <option value="Re">Rem</option>
+            <option value="Mi">Mim</option>
+            <option value="Fa">Fam</option>
+            <option value="Sol">Solm</option>
+            <option value="La">Lam</option>
+            <option value="Si">Sim</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-principal">Sapiar Cuequitas</button>
+
+        <p id="mensaje" class="mensaje"></p>
+      </form>
+    </section>
+
+    <!-- SECCIÓN DE RESULTADOS -->
+    <section class="tarjeta">
+      <h2>Resultados</h2>
+      <ul id="lista-resultados" class="lista"></ul>
+      <p id="resumen" class="resumen">
+        Aún no has realizado una búsqueda.
+      </p>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Proyecto realizado por Angelo Gonzalez</p>
+  </footer>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
