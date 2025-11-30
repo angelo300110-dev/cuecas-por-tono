@@ -196,7 +196,7 @@ function dibujarResultados(resultados) {
     const li = document.createElement("li");
     li.classList.add("item-cancion");
     li.textContent =
-      cancion.titulo + " (Tono: " + cancion.tono + ")";
+      cancion.titulo;
     listaResultados.appendChild(li);
   });
 
