@@ -138,3 +138,8 @@ select {
 .boton-enlace:hover {
   background-color: #0056b3;
 }
+.boton-secundario {
+  margin-top: 10px;
+  width: 100%;
+}
+
