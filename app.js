@@ -134,79 +134,72 @@ const canciones = [
   { titulo: "SOLLOZA LA AURACANIA", tono: "Sim" }
 ];
 
-
 // Referencias al DOM
 const form = document.getElementById("form-busqueda");
-const inputTono = document.getElementById("tono");
+const selectTono = document.getElementById("tono");
 const listaResultados = document.getElementById("lista-resultados");
 const resumen = document.getElementById("resumen");
 const mensaje = document.getElementById("mensaje");
 
 // Escuchamos el envío del formulario
 form.addEventListener("submit", function (evento) {
-  evento.preventDefault(); // Evita recargar la página
+  evento.preventDefault();
 
-  const tonoSeleccionado = inputTono.value;
+  const tonoSeleccionado = selectTono.value;
 
-  // CONDICIONAL: validar que se haya elegido un tono
+  // CONDICIONAL: validar selección
   if (!tonoSeleccionado) {
     mostrarMensaje("Por favor, selecciona un tono.", true);
-    listaResultados.innerHTML = "";
-    resumen.textContent = "Aún no has realizado una búsqueda válida.";
+    limpiarResultados();
     return;
   }
 
-  // FILTRAR CANCIONES POR TONO (esto usa un ciclo interno del filter)
+  // FILTRO: buscamos solo cuecas del tono elegido
   const resultados = canciones.filter(function (cancion) {
     return cancion.tono === tonoSeleccionado;
   });
 
+  // Mensaje según si hay o no resultados
   if (resultados.length === 0) {
-    mostrarMensaje(
-      "No se encontraron cuecas en el tono seleccionado.",
-      true
-    );
+    mostrarMensaje("No se encontraron cuecas en ese tono.", true);
   } else {
-    mostrarMensaje(
-      "Se encontraron cuecas en el tono seleccionado.",
-      false
-    );
+    mostrarMensaje("Se encontraron cuecas en este tono.", false);
   }
 
-  // Dibujar los resultados y mostrar estadísticas
   dibujarResultados(resultados);
 });
 
-// Función para mostrar mensajes en pantalla
+// Muestra un mensaje simple en pantalla
 function mostrarMensaje(texto, esError) {
   mensaje.textContent = texto;
   mensaje.style.color = esError ? "red" : "green";
 }
 
-// Función que maneja la manipulación del DOM y el cálculo
-function dibujarResultados(resultados) {
-  // Limpiamos la lista antes de volver a dibujar
+// Limpia lista y resumen
+function limpiarResultados() {
   listaResultados.innerHTML = "";
+  resumen.textContent = "Aún no has realizado una búsqueda.";
+}
 
-  const totalCanciones = canciones.length;
-  const cantidadEncontradas = resultados.length;
+// Dibuja resultados y actualiza el resumen
+function dibujarResultados(resultados) {
+  // Limpiamos la lista antes de dibujar
+  listaResultados.innerHTML = "";
 
   // CICLO: recorremos los resultados y los agregamos al DOM
   resultados.forEach(function (cancion) {
     const li = document.createElement("li");
     li.classList.add("item-cancion");
-    li.textContent =
-      cancion.titulo;
+    li.textContent = cancion.titulo; // ← SOLO NOMBRE, SIN TONO
     listaResultados.appendChild(li);
   });
 
-  // CÁLCULO: porcentaje de canciones en ese tono
-  let porcentaje = 0;
-  if (totalCanciones > 0) {
-    porcentaje = Math.round((cantidadEncontradas * 100) / totalCanciones);
-  }
+  // CÁLCULO: cuántas hay en este tono y cuántas en otros
+  const totalCanciones = canciones.length;
+  const cantidadEncontradas = resultados.length;
+  const enOtrosTonos = totalCanciones - cantidadEncontradas; // resta simple
 
-  // Actualizamos el resumen en el DOM
+  // Resumen en el DOM (sin porcentaje)
   if (cantidadEncontradas === 0) {
     resumen.textContent =
       "No hay cuecas registradas en este tono dentro del repertorio.";
@@ -214,10 +207,12 @@ function dibujarResultados(resultados) {
     resumen.textContent =
       "Se encontraron " +
       cantidadEncontradas +
-      " de " +
+      " cuecas en este tono y " +
+      enOtrosTonos +
+      " en otros tonos (de un total de " +
       totalCanciones +
-      " cuecas en este tono (" +
-      porcentaje +
-      "% del repertorio registrado).";
+      ").";
   }
 }
+
+
