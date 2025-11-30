@@ -124,3 +124,17 @@ select {
 .oculto {
   display: none;
 }
+.boton-enlace {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.boton-enlace:hover {
+  background-color: #0056b3;
+}
