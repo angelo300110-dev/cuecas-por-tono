@@ -54,7 +54,7 @@ const canciones = [
   { titulo: "QUE LINDA SON LAS MAÑANAS", tono: "Mi" },
 
   // ---------------- MIm ----------------
-  { titulo: "LA CAPICHI", tono: "Mim" },
+  { titulo: "LA CAPICCI", tono: "Mim" },
   { titulo: "EL CHALAILA", tono: "Mim" },
   { titulo: "HOY MIRÉ POR MI VENTANA", tono: "Mim" },
   { titulo: "SE ARRANCARON CON EL PIANO (VAMOS PA´ ALLÁ)", tono: "Mim" },
@@ -214,6 +214,4 @@ function dibujarResultados(resultados) {
       ").";
   }
 }
-
-
 
