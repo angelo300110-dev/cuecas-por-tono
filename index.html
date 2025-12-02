@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente para el título -->
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
   <title>Buscador de Cuecas por Tono</title>
+
+  <!-- Hoja de estilos -->
   <link rel="stylesheet" href="styles.css?v=1">
 </head>
 
-
 <body>
+  <!-- ENCABEZADO PRINCIPAL -->
   <header class="encabezado">
     <h1 class="header-title">Buscador de Cuecas por Tono</h1>
     <p class="header-sub">CUECANCIONERO CHORO</p>
-    <p class="subtexto-header">Página pensada y creada para ser un aporte a la cultura y folclore Chileno</p>
-
+    <p class="subtexto-header">
+      Página pensada y creada para ser un aporte a la cultura y folclore Chileno
+    </p>
   </header>
 
+  <!-- CONTENIDO PRINCIPAL -->
   <main class="contenedor">
     <!-- SECCIÓN DE BÚSQUEDA -->
     <section class="tarjeta">
@@ -51,7 +56,6 @@
             <option value="Si">Si</option>
             <option value="Sim">Sim</option>
           </select>
-
         </div>
 
         <button type="submit" class="btn-principal">Sapiar Cuequitas</button>
@@ -70,22 +74,24 @@
     </section>
   </main>
 
-
+  <!-- PIE DE PÁGINA -->
   <footer class="pie">
-
-    <div style="text-align:center; margin-top:20px;">
-      <button type="button" class="btn-buscar boton-footer"
-        onclick="window.open('https://ahorasiqueescribo.blogspot.com/', '_blank')">
+    <div class="pie-contenido">
+      <button
+        type="button"
+        class="btn-buscar boton-footer"
+        onclick="window.open('https://ahorasiqueescribo.blogspot.com/', '_blank')"
+      >
         Ir a Cuecas Filetes
       </button>
-      <p class="copyright">&copy; 2025 Angelo Gonzalez V. Todos los derechos reservados.</p>
 
-      </a>
+      <p class="copyright">
+        &copy; 2025 Angelo Gonzalez V. Todos los derechos reservados.
+      </p>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- LÓGICA DE LA PÁGINA -->
   <script src="app.js?v=1"></script>
 </body>
-
 </html>
