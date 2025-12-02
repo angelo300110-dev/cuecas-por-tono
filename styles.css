@@ -1,53 +1,73 @@
-/* Estilos generales */
+/* ===========================
+   ESTILOS GENERALES
+   =========================== */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
   padding: 0;
   color: #111827;
 
-  /* Imagen de fondo */
+  /* Imagen de fondo general */
   background-image: url("fondo.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
 
-  /* Capa rosada encima */
+  /* Capa rosada encima de la imagen */
   background-color: rgba(255, 192, 203, 0.7);
   background-blend-mode: lighten;
 }
 
+/* ===========================
+   ENCABEZADO
+   =========================== */
 .encabezado {
   background-image: url("606667e3-8c53-4900-b84c-e173a6f4f236.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 
   padding: 4rem 1rem;
 
+  /* Oscurece la foto para que se lea mejor el texto */
   background-color: rgba(0, 0, 0, 0.45);
   background-blend-mode: darken;
 }
 
+/* Título principal */
 .header-title {
   font-family: 'Bree Serif', serif;
   font-size: 50px;
   font-weight: 400;
 }
 
+/* Subtítulo ("CUECANCIONERO CHORO") */
 .header-sub {
-  font-family: 'Merriweather', serif;
+  font-family: 'Bree Serif', serif;
   font-size: 22px;
   font-weight: 300;
   letter-spacing: 1px;
   margin-top: -10px;
   color: rgb(240, 240, 240);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Contenedor principal */
+/* Frase explicativa bajo el subtítulo */
+.subtexto-header {
+  font-family: 'Bree Serif', serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 0.5rem;
+  color: rgb(235, 235, 235);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* ===========================
+   CONTENEDOR PRINCIPAL
+   =========================== */
 .contenedor {
   max-width: 900px;
   margin: 1.5rem auto;
@@ -56,7 +76,7 @@ body {
   gap: 1.5rem;
 }
 
-/* Tarjetas */
+/* Tarjetas blancas/azules donde va el contenido */
 .tarjeta {
   background-color: rgb(0, 153, 255);
   padding: 1.25rem;
@@ -64,7 +84,11 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
-/* Grupos de formulario */
+/* ===========================
+   FORMULARIO DE BÚSQUEDA
+   =========================== */
+
+/* Contenedor de cada grupo label + input */
 .grupo {
   margin-bottom: 0.9rem;
   display: flex;
@@ -76,7 +100,7 @@ body {
   margin-bottom: 0.2rem;
 }
 
-/* Inputs y select */
+/* Select (y textos si se agregaran) */
 input[type="text"],
 select {
   padding: 0.4rem 0.5rem;
@@ -84,7 +108,7 @@ select {
   border: 1px solid #d1d5db;
 }
 
-/* Botón principal */
+/* Botón rojo "Sapiar Cuequitas" */
 .btn-principal {
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
@@ -96,76 +120,72 @@ select {
   font-weight: 600;
 }
 
-/* Mensajes */
+/* Mensaje de error o éxito bajo el botón */
 .mensaje {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
 
-/* Lista de resultados */
+/* ===========================
+   LISTA DE RESULTADOS
+   =========================== */
+
+/* Quita viñetas y márgenes del <ul> */
 .lista {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Cada cueca dentro de la lista */
 .item-cancion {
   padding: 0.6rem 0.4rem;
   border-bottom: 1px solid #e5e7eb;
   font-size: 0.95rem;
+  cursor: pointer;           /* se ve como link clickeable */
 }
 
-/* Letra de canción */
-.letra {
-  white-space: pre-wrap;
-  font-size: 0.9rem;
-  margin-top: 0.3rem;
-  color: #374151;
+.item-cancion:hover {
+  text-decoration: underline;
 }
 
-/* Link externo */
-.link-externo {
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
-}
-
-/* Resumen de la búsqueda */
+/* Resumen de la búsqueda (texto debajo de la lista) */
 .resumen {
   margin-top: 0.8rem;
   font-weight: 600;
 }
 
-/* Pie de página */
+/* ===========================
+   PIE DE PÁGINA
+   =========================== */
+
 .pie {
-  text-align: center;
+  padding: 1rem;
   font-size: 0.85rem;
   color: #4b5563;
-  padding: 1rem;
 }
 
-/* Ocultar bloques según el modo */
-.oculto {
-  display: none;
+/* Contenedor interno del footer (centra contenido) */
+.pie-contenido {
+  text-align: center;
+  margin-top: 20px;
 }
-.boton-enlace {
-  display: inline-block;
-  background-color: #007bff;
-  color: white;
-  padding: 20px 32px;
+
+/* Botón del footer: "Ir a Cuecas Filetes" */
+.btn-buscar.boton-footer {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.4rem;
   border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
+  background-color: #d36f6f;
+  color: white;
+  font-weight: 600;
 }
 
-.boton-enlace:hover {
-  background-color: #0056b3;
+/* Texto de copyright */
+.copyright {
+  margin-top: 0.75rem;
 }
-.boton-secundario {
-  margin-top: 10px;
-  width: 100%;
-}
-.btn-buscar {
-  background-color: #d36f6f;
-}
+
 
