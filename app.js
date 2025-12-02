@@ -1,6 +1,9 @@
-// Cada objeto tiene un título y un tono.
+// ==============================
+// 1) DATOS DEL REPERTORIO
+//    Cada cueca tiene un título y un tono
+// ==============================
 const canciones = [
-  // ---------------- DO ----------------
+  // --------- DO ---------
   { titulo: "UN SAPO ENTREGADOR", tono: "Do" },
   { titulo: "EN EL CAJON DEL SERVICIO", tono: "Do" },
   { titulo: "EN RUEDA DE COMERCIANTE", tono: "Do" },
@@ -14,7 +17,7 @@ const canciones = [
   { titulo: "AMOR MARINERO", tono: "Do" },
   { titulo: "LA FUGA DE BALMACEDA", tono: "Do" },
 
-  // ---------------- DOm ----------------
+  // --------- DOm ---------
   { titulo: "SE HA ENAMORADO EL PAYASO", tono: "Dom" },
   { titulo: "MORENO PINTAN A CRISTO", tono: "Dom" },
   { titulo: "TAN GRITANDO LOS CHIQUILLOS", tono: "Dom" },
@@ -23,7 +26,7 @@ const canciones = [
   { titulo: "DE LA GUITARRA HICE UN BARCO", tono: "Dom" },
   { titulo: "MALAYA EL AMOR", tono: "Dom" },
 
-  // ---------------- RE ----------------
+  // --------- RE ---------
   { titulo: "LA REINETITA", tono: "Re" },
   { titulo: "POR AMOR A LAS JOYAS", tono: "Re" },
   { titulo: "A PUNTA E´ PALMA LAS CUECAS", tono: "Re" },
@@ -34,13 +37,13 @@ const canciones = [
   { titulo: "NO HAY COMO EL ROTO CHILENO", tono: "Re" },
   { titulo: "NO LLORES TANTO MARIA", tono: "Re" },
 
-  // ---------------- REm ----------------
+  // --------- REm ---------
   { titulo: "CATALINA DE LOS RIOS", tono: "Rem" },
   { titulo: "DICEN QUE EN VIÑA DEL MAR", tono: "Rem" },
   { titulo: "EL RELOJ (MALVAROSA)", tono: "Rem" },
   { titulo: "LAS DIEZ FORMAS DEL CANTO", tono: "Rem" },
 
-  // ---------------- MI ----------------
+  // --------- MI ---------
   { titulo: "ALÓ ALÓ", tono: "Mi" },
   { titulo: "UNA TRISTE PALOMITA", tono: "Mi" },
   { titulo: "CUANDO SALÍ DE LA CANA", tono: "Mi" },
@@ -53,7 +56,7 @@ const canciones = [
   { titulo: "POR EL ORO DE CALIFORNIA", tono: "Mi" },
   { titulo: "QUE LINDA SON LAS MAÑANAS", tono: "Mi" },
 
-  // ---------------- MIm ----------------
+  // --------- MIm ---------
   { titulo: "LA CAPICCI", tono: "Mim" },
   { titulo: "EL CHALAILA", tono: "Mim" },
   { titulo: "HOY MIRÉ POR MI VENTANA", tono: "Mim" },
@@ -62,7 +65,7 @@ const canciones = [
   { titulo: "LAS NOCHES DEL PUERTO LINDO", tono: "Mim" },
   { titulo: "NO LE PONGAI NOMBRE AL PUERTO", tono: "Mim" },
 
-  // ---------------- FA ----------------
+  // --------- FA ---------
   { titulo: "ASERRUCHA CASIMIRO", tono: "Fa" },
   { titulo: "DURMIENDO TE HAGO CARIÑO", tono: "Fa" },
   { titulo: "UN COJO LA REVOLVÍA", tono: "Fa" },
@@ -72,10 +75,10 @@ const canciones = [
   { titulo: "EL BOQUERA", tono: "Fa" },
   { titulo: "QUÉ PENA QUE SIENTE EL PRESO (VAMOS PA´ ALLÁ)", tono: "Fa" },
 
-  // ---------------- FAm ----------------
-  //PENDIENTES DE AGREGAR
+  // --------- FAm ---------
+  // PENDIENTE DE AGREGAR CUECAS EN ESTE TONO
 
-  // ---------------- SOL ----------------
+  // --------- SOL ---------
   { titulo: "ANOCHE EN EL ROMERITO", tono: "Sol" },
   { titulo: "CARACOL (LAS NIÑAS)", tono: "Sol" },
   { titulo: "LARGUEME LA MANGA", tono: "Sol" },
@@ -97,13 +100,13 @@ const canciones = [
   { titulo: "ME GUSTA QUE TE DIVIERTAS", tono: "Sol" },
   { titulo: "POR ESA CALLE A LO LARGO (LAS NIÑAS)", tono: "Sol" },
 
-  // ---------------- SOLm ----------------
+  // --------- SOLm ---------
   { titulo: "AL CHICO MESIAS", tono: "Solm" },
   { titulo: "CUECA DEL CAMIONERO", tono: "Solm" },
   { titulo: "LA NOVIA", tono: "Solm" },
   { titulo: "MI NEGRA ME RETÓ A DUELO", tono: "Solm" },
 
-  // ---------------- LA ----------------
+  // --------- LA ---------
   { titulo: "AL TIRANTE", tono: "La" },
   { titulo: "EL VOLANTIN", tono: "La" },
   { titulo: "AMOR CON TANTO DELIRIO", tono: "La" },
@@ -118,7 +121,7 @@ const canciones = [
   { titulo: "PEGO EL GRITO EN CUALQUIER PARTE", tono: "La" },
   { titulo: "QUIERO PURO SACAR PAPAS", tono: "La" },
 
-  // ---------------- LAm ----------------
+  // --------- LAm ---------
   { titulo: "ADIOS SANTIAGO QUERIDO", tono: "Lam" },
   { titulo: "LA CAMISA DE LA LOLO", tono: "Lam" },
   { titulo: "LA CUECA DEL PICHO", tono: "Lam" },
@@ -127,34 +130,44 @@ const canciones = [
   { titulo: "MARIQUITA SE LLAMABA", tono: "Lam" },
   { titulo: "POR UN POCO DE SUSTANCIA", tono: "Lam" },
 
-  // ---------------- SI ----------------
+  // --------- SI ---------
   { titulo: "DOS CORAZONES UNIDOS", tono: "Si" },
 
-  // ---------------- SIm ----------------
+  // --------- SIm ---------
   { titulo: "SOLLOZA LA AURACANIA", tono: "Sim" }
 ];
 
-// Referencias al DOM
+// Cantidad total de cuecas (lo calculamos una sola vez)
+const totalCanciones = canciones.length;
+
+// ==============================
+// 2) REFERENCIAS AL DOM
+// ==============================
 const form = document.getElementById("form-busqueda");
 const selectTono = document.getElementById("tono");
 const listaResultados = document.getElementById("lista-resultados");
 const resumen = document.getElementById("resumen");
 const mensaje = document.getElementById("mensaje");
 
-// Escuchamos el envío del formulario
+// ==============================
+// 3) MANEJO DEL FORMULARIO
+// ==============================
+
 form.addEventListener("submit", function (evento) {
+  // Evita que el formulario recargue la página
   evento.preventDefault();
 
+  // Obtenemos el tono elegido en el select
   const tonoSeleccionado = selectTono.value;
 
-  // CONDICIONAL: validar selección
+  // CONDICIONAL: validar que se haya escogido un tono
   if (!tonoSeleccionado) {
     mostrarMensaje("Por favor, selecciona un tono.", true);
     limpiarResultados();
-    return;
+    return; // cortamos la ejecución aquí
   }
 
-  // FILTRO: buscamos solo cuecas del tono elegido
+  // FILTRO: buscamos solo las cuecas del tono elegido
   const resultados = canciones.filter(function (cancion) {
     return cancion.tono === tonoSeleccionado;
   });
@@ -166,16 +179,21 @@ form.addEventListener("submit", function (evento) {
     mostrarMensaje("Se encontraron cuecas en este tono.", false);
   }
 
+  // Dibujamos la lista y el resumen
   dibujarResultados(resultados);
 });
 
-// Muestra un mensaje simple en pantalla
+// ==============================
+// 4) FUNCIONES DE APOYO
+// ==============================
+
+// Muestra un mensaje simple en pantalla (error o éxito)
 function mostrarMensaje(texto, esError) {
   mensaje.textContent = texto;
   mensaje.style.color = esError ? "red" : "green";
 }
 
-// Limpia lista y resumen
+// Limpia lista y texto de resumen
 function limpiarResultados() {
   listaResultados.innerHTML = "";
   resumen.textContent = "Aún no has realizado una búsqueda.";
@@ -183,23 +201,22 @@ function limpiarResultados() {
 
 // Dibuja resultados y actualiza el resumen
 function dibujarResultados(resultados) {
-  // Limpiamos la lista antes de dibujar
+  // 1) Limpiamos la lista antes de dibujar
   listaResultados.innerHTML = "";
 
-  // CICLO: recorremos los resultados y los agregamos al DOM
+  // 2) Recorremos los resultados y los agregamos al DOM (CICLO)
   resultados.forEach(function (cancion) {
     const li = document.createElement("li");
     li.classList.add("item-cancion");
-    li.textContent = cancion.titulo; // ← SOLO NOMBRE, SIN TONO
+    li.textContent = cancion.titulo; // solo el nombre de la cueca
     listaResultados.appendChild(li);
   });
 
-  // CÁLCULO: cuántas hay en este tono y cuántas en otros
-  const totalCanciones = canciones.length;
+  // 3) Calculamos estadísticas básicas
   const cantidadEncontradas = resultados.length;
-  const enOtrosTonos = totalCanciones - cantidadEncontradas; // resta simple
+  const enOtrosTonos = totalCanciones - cantidadEncontradas;
 
-  // Resumen en el DOM (sin porcentaje)
+  // 4) Actualizamos el resumen en el DOM
   if (cantidadEncontradas === 0) {
     resumen.textContent =
       "No hay cuecas registradas en este tono dentro del repertorio.";
@@ -214,4 +231,3 @@ function dibujarResultados(resultados) {
       ").";
   }
 }
-
