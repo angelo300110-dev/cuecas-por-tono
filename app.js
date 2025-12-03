@@ -75,9 +75,6 @@ const canciones = [
   { titulo: "EL BOQUERA", tono: "Fa" },
   { titulo: "QUÉ PENA QUE SIENTE EL PRESO (VAMOS PA´ ALLÁ)", tono: "Fa" },
 
-  // --------- FAm ---------
-  // PENDIENTE DE AGREGAR CUECAS EN ESTE TONO
-
   // --------- SOL ---------
   { titulo: "ANOCHE EN EL ROMERITO", tono: "Sol" },
   { titulo: "CARACOL (LAS NIÑAS)", tono: "Sol" },
@@ -137,8 +134,11 @@ const canciones = [
   { titulo: "SOLLOZA LA AURACANIA", tono: "Sim" }
 ];
 
-// Cantidad total de cuecas (lo calculamos una sola vez)
+// Cantidad total de cuecas
 const totalCanciones = canciones.length;
+
+// URL para búsqueda directa en Cuecas Filetes
+const URL_CUECAS_FILETES = "https://ahorasiqueescribo.blogspot.com/search?q=";
 
 // ==============================
 // 2) REFERENCIAS AL DOM
@@ -149,85 +149,84 @@ const listaResultados = document.getElementById("lista-resultados");
 const resumen = document.getElementById("resumen");
 const mensaje = document.getElementById("mensaje");
 
+const btnAzar = document.getElementById("btn-azar"); // NUEVO BOTÓN
+
 // ==============================
 // 3) MANEJO DEL FORMULARIO
 // ==============================
 
 form.addEventListener("submit", function (evento) {
-  // Evita que el formulario recargue la página
   evento.preventDefault();
 
-  // Obtenemos el tono elegido en el select
   const tonoSeleccionado = selectTono.value;
 
-  // CONDICIONAL: validar que se haya escogido un tono
   if (!tonoSeleccionado) {
     mostrarMensaje("Por favor, selecciona un tono.", true);
     limpiarResultados();
-    return; // cortamos la ejecución aquí
+    return;
   }
 
-  // FILTRO: buscamos solo las cuecas del tono elegido
-  const resultados = canciones.filter(function (cancion) {
-    return cancion.tono === tonoSeleccionado;
-  });
+  const resultados = canciones.filter(c => c.tono === tonoSeleccionado);
 
-  // Mensaje según si hay o no resultados
-  if (resultados.length === 0) {
-    mostrarMensaje("No se encontraron cuecas en ese tono.", true);
-  } else {
-    mostrarMensaje("Se encontraron cuecas en este tono.", false);
-  }
+  mostrarMensaje(
+    resultados.length === 0
+      ? "No se encontraron cuecas en ese tono."
+      : "Se encontraron cuecas en este tono.",
+    resultados.length === 0
+  );
 
-  // Dibujamos la lista y el resumen
   dibujarResultados(resultados);
 });
 
 // ==============================
-// 4) FUNCIONES DE APOYO
+// 4) FUNCIÓN: BOTÓN AL AZAR
+// ==============================
+btnAzar.addEventListener("click", function () {
+  const aleatoria = canciones[Math.floor(Math.random() * canciones.length)];
+  mostrarMensaje("Cueca al azar seleccionada:", false);
+  dibujarResultados([aleatoria]);
+});
+
+// ==============================
+// 5) FUNCIONES DE APOYO
 // ==============================
 
-// Muestra un mensaje simple en pantalla (error o éxito)
 function mostrarMensaje(texto, esError) {
   mensaje.textContent = texto;
   mensaje.style.color = esError ? "red" : "green";
 }
 
-// Limpia lista y texto de resumen
 function limpiarResultados() {
   listaResultados.innerHTML = "";
   resumen.textContent = "Aún no has realizado una búsqueda.";
 }
 
-// Dibuja resultados y actualiza el resumen
 function dibujarResultados(resultados) {
-  // 1) Limpiamos la lista antes de dibujar
   listaResultados.innerHTML = "";
 
-  // 2) Recorremos los resultados y los agregamos al DOM (CICLO)
-  resultados.forEach(function (cancion) {
+  resultados.forEach(cancion => {
     const li = document.createElement("li");
     li.classList.add("item-cancion");
-    li.textContent = cancion.titulo; // solo el nombre de la cueca
+    li.textContent = cancion.titulo;
+
+    // *** efecto visual ***
+    li.style.opacity = "0";
+    setTimeout(() => (li.style.opacity = "1"), 20);
+
+    // *** click para abrir Cuecas Filetes ***
+    li.addEventListener("click", () => {
+      const url = URL_CUECAS_FILETES + encodeURIComponent(cancion.titulo);
+      window.open(url, "_blank");
+    });
+
     listaResultados.appendChild(li);
   });
 
-  // 3) Calculamos estadísticas básicas
   const cantidadEncontradas = resultados.length;
   const enOtrosTonos = totalCanciones - cantidadEncontradas;
 
-  // 4) Actualizamos el resumen en el DOM
-  if (cantidadEncontradas === 0) {
-    resumen.textContent =
-      "No hay cuecas registradas en este tono dentro del repertorio.";
-  } else {
-    resumen.textContent =
-      "Se encontraron " +
-      cantidadEncontradas +
-      " cuecas en este tono y " +
-      enOtrosTonos +
-      " en otros tonos (de un total de " +
-      totalCanciones +
-      ").";
-  }
+  resumen.textContent =
+    cantidadEncontradas === 0
+      ? "No hay cuecas registradas en este tono."
+      : `Se encontraron ${cantidadEncontradas} cuecas en este tono y ${enOtrosTonos} en otros tonos (de un total de ${totalCanciones}).`;
 }
