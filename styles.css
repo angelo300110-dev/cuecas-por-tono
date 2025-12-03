@@ -121,6 +121,14 @@ select {
   background-color: red;
   color: white;
   font-weight: 600;
+
+  /* Animación suave en hover */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-principal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Mensaje de error o éxito bajo el botón */
@@ -145,8 +153,18 @@ select {
   padding: 0.6rem 0.4rem;
   border-bottom: 1px solid #e5e7eb;
   font-size: 0.95rem;
-  cursor: pointer;           /* se ve como link clickeable */
+  cursor: pointer;
+
+  /* Animación de hover */
+  transition: background-color 0.15s ease, transform 0.1s ease;
 }
+
+.item-cancion:hover {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(2px);
+}
+
 
 .item-cancion:hover {
   text-decoration: underline;
@@ -184,12 +202,22 @@ select {
   background-color: #d36f6f;
   color: white;
   font-weight: 600;
+
+  /* Animación suave en hover */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
+.btn-buscar.boton-footer:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
 
 /* Texto de copyright */
 .copyright {
   margin-top: 0.75rem;
 }
+
 
 
 
