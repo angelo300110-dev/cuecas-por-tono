@@ -83,7 +83,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 
-     /* Animación al cargar */
+    /* Animación al cargar */
   animation: fadeInUp 0.6s ease-out;
 }
 
@@ -130,6 +130,7 @@ select {
   transform: translateY(-1px);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Mensaje de error o éxito bajo el botón */
 .mensaje {
@@ -218,6 +219,15 @@ select {
   margin-top: 0.75rem;
 }
 
-
-
+/* Animación de entrada suave para las tarjetas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
