@@ -1,101 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Fuente para el título -->
-  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buscador de Cuecas por Tono</title>
-
-  <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- ENCABEZADO PRINCIPAL -->
   <header class="encabezado">
     <h1 class="header-title">Buscador de Cuecas por Tono</h1>
     <p class="header-sub">CUECANCIONERO CHORO</p>
-    <p class="subtexto-header">
-      Página pensada y creada para ser un aporte a la cultura y folclore Chileno
-    </p>
+    <p class="subtexto-header">Página pensada y creada para ser un aporte a la cultura y folclore Chileno</p>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL -->
   <main class="contenedor">
-    <!-- SECCIÓN DE BÚSQUEDA -->
+    <!-- Sección de búsqueda -->
     <section class="tarjeta">
-      <h2>Búsqueda por tono</h2>
+      <h2><span class="emoji">👀</span> ¡Sapiemos unas cuequitas!</h2>
 
       <form id="form-busqueda">
         <div class="grupo">
           <label for="tono">Selecciona el tono</label>
           <select id="tono">
             <option value="">-- Selecciona un tono --</option>
-
-            <option value="Do">Do</option>
-            <option value="Dom">Dom</option>
-
-            <option value="Re">Re</option>
-            <option value="Rem">Rem</option>
-
-            <option value="Mi">Mi</option>
-            <option value="Mim">Mim</option>
-
-            <option value="Fa">Fa</option>
-            <option value="Fam">Fam</option>
-
-            <option value="Sol">Sol</option>
-            <option value="Solm">Solm</option>
-
-            <option value="La">La</option>
-            <option value="Lam">Lam</option>
-
-            <option value="Si">Si</option>
-            <option value="Sim">Sim</option>
+            <option value="Do">Do</option><option value="Dom">Dom</option>
+            <option value="Re">Re</option><option value="Rem">Rem</option>
+            <option value="Mi">Mi</option><option value="Mim">Mim</option>
+            <option value="Fa">Fa</option><option value="Fam">Fam</option>
+            <option value="Sol">Sol</option><option value="Solm">Solm</option>
+            <option value="La">La</option><option value="Lam">Lam</option>
+            <option value="Si">Si</option><option value="Sim">Sim</option>
           </select>
         </div>
 
         <button type="submit" class="btn-principal">Sapiar Cuequitas</button>
-        <button type="button" id="btn-azar" class="btn-principal" style="background-color:#008f39;">
-  Cueca al Azar
-</button>
-
-
         <p id="mensaje" class="mensaje"></p>
       </form>
     </section>
 
-    <!-- SECCIÓN DE RESULTADOS -->
+    <!-- Sección de resultados -->
     <section class="tarjeta">
-      <h2>Resultados</h2>
+      <h2><span class="emoji">📃</span> Resultados de la búsqueda</h2>
       <ul id="lista-resultados" class="lista"></ul>
-      <p id="resumen" class="resumen">
-        Aún no has realizado una búsqueda.
-      </p>
+      <p id="resumen" class="resumen">Aún no has realizado una búsqueda.</p>
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA -->
   <footer class="pie">
-    <div class="pie-contenido">
-      <button
-        type="button"
-        class="btn-buscar boton-footer"
-        onclick="window.open('https://ahorasiqueescribo.blogspot.com/', '_blank')"
-      >
-        Ir a Cuecas Filetes
+    <div class="botones-footer">
+      <button type="button" class="btn-footer afinador" onclick="window.open('https://angelo300110-dev.github.io/afinador/', '_blank')">
+        🎼 Afina tu guitarra aquí
       </button>
 
-      <p class="copyright">
-        &copy; 2025 Angelo Gonzalez V. Todos los derechos reservados.
-      </p>
+      <button type="button" class="btn-footer cuecas" onclick="window.open('https://ahorasiqueescribo.blogspot.com/', '_blank')">
+        🎶 Ir a Cuecas Filetes
+      </button>
     </div>
+
+    <p class="copyright">
+      &copy; 2025 Angelo Gonzalez V. Todos los derechos reservados. | ¡Vamos pa’ allá, compaire!
+    </p>
   </footer>
 
-  <!-- LÓGICA DE LA PÁGINA -->
-  <script src="app.js?v=1"></script>
+  <script src="app.js?v=3"></script>
 </body>
+
 </html>
