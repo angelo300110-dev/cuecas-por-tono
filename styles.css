@@ -1,233 +1,217 @@
-/* ===========================
-   ESTILOS GENERALES
-   =========================== */
+/* Paleta de colores inspirada en Chile */
+:root {
+  --azul-marino: #0d3b66;
+  --rojo-vino: #7b2d26;
+  --beige-claro: #fef6e4;
+  --tierra: #d6a27a;
+  --gris-texto: #374151;
+  --sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
   padding: 0;
-  color: #111827;
-
-  /* Imagen de fondo general */
+  color: var(--gris-texto);
   background-image: url("fondo.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-
-  /* Capa rosada encima de la imagen */
-  background-color: rgba(255, 192, 203, 0.7);
+  background-color: rgba(255, 255, 255, 0.75);
   background-blend-mode: lighten;
 }
 
-/* ===========================
-   ENCABEZADO
-   =========================== */
+/* Encabezado */
 .encabezado {
   background-image: url("606667e3-8c53-4900-b84c-e173a6f4f236.png");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   text-align: center;
-  color: #ffffff;
-
   padding: 4rem 1rem;
-
-  /* Oscurece la foto para que se lea mejor el texto */
   background-color: rgba(0, 0, 0, 0.45);
   background-blend-mode: darken;
+  color: #fff;
 }
 
-/* Título principal */
 .header-title {
   font-family: 'Bree Serif', serif;
   font-size: 50px;
-  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
-/* Subtítulo ("CUECANCIONERO CHORO") */
 .header-sub {
-  font-family: 'Bree Serif', serif;
+  font-family: 'Merriweather', serif;
   font-size: 22px;
   font-weight: 300;
-  letter-spacing: 1px;
-  margin-top: -10px;
-  color: rgb(240, 240, 240);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #eaeaea;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  margin: 0;
 }
 
-/* Frase explicativa bajo el subtítulo */
 .subtexto-header {
-  font-family: 'Bree Serif', serif;
   font-size: 16px;
-  font-weight: 300;
+  font-style: italic;
   margin-top: 0.5rem;
-  color: rgb(235, 235, 235);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-/* ===========================
-   CONTENEDOR PRINCIPAL
-   =========================== */
+/* Contenedor general */
 .contenedor {
   max-width: 900px;
-  margin: 1.5rem auto;
+  margin: 2rem auto;
   padding: 0 1rem;
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-/* Tarjetas blancas/azules donde va el contenido */
+/* Tarjetas */
 .tarjeta {
-  background-color: rgb(0, 153, 255);
-  padding: 1.25rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-
-    /* Animación al cargar */
-  animation: fadeInUp 0.6s ease-out;
+  background-color: var(--beige-claro);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px var(--sombra);
+  transition: transform 0.3s ease;
 }
 
-/* ===========================
-   FORMULARIO DE BÚSQUEDA
-   =========================== */
+.tarjeta:hover {
+  transform: scale(1.01);
+}
 
-/* Contenedor de cada grupo label + input */
+/* Títulos con íconos */
+h2 {
+  font-family: 'Bree Serif', serif;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.emoji {
+  font-size: 1.5rem;
+}
+
+/* Formularios */
 .grupo {
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .grupo label {
   font-weight: 600;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
 }
 
-/* Select (y textos si se agregaran) */
 input[type="text"],
 select {
-  padding: 0.4rem 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
-/* Botón rojo "Sapiar Cuequitas" */
+/* Botón principal */
 .btn-principal {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
-  background-color: red;
+  background-color: var(--rojo-vino);
   color: white;
-  font-weight: 600;
-
-  /* Animación suave en hover */
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-principal:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: #5e1d1b;
+  transform: scale(1.05);
 }
 
-
-/* Mensaje de error o éxito bajo el botón */
+/* Mensajes */
 .mensaje {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: #b91c1c;
 }
 
-/* ===========================
-   LISTA DE RESULTADOS
-   =========================== */
-
-/* Quita viñetas y márgenes del <ul> */
+/* Lista de resultados */
 .lista {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Cada cueca dentro de la lista */
 .item-cancion {
-  padding: 0.6rem 0.4rem;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 0.7rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+}
+
+/* Letra */
+.letra {
+  white-space: pre-wrap;
   font-size: 0.95rem;
-  cursor: pointer;
-
-  /* Animación de hover */
-  transition: background-color 0.15s ease, transform 0.1s ease;
-}
-
-.item-cancion:hover {
-  text-decoration: underline;
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateX(2px);
-}
-
-
-.item-cancion:hover {
-  text-decoration: underline;
-}
-
-/* Resumen de la búsqueda (texto debajo de la lista) */
-.resumen {
-  margin-top: 0.8rem;
-  font-weight: 600;
-}
-
-/* ===========================
-   PIE DE PÁGINA
-   =========================== */
-
-.pie {
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: #4b5563;
-}
-
-/* Contenedor interno del footer (centra contenido) */
-.pie-contenido {
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* Botón del footer: "Ir a Cuecas Filetes" */
-.btn-buscar.boton-footer {
   margin-top: 0.5rem;
-  padding: 0.6rem 1.4rem;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  background-color: #d36f6f;
-  color: white;
+  color: var(--gris-texto);
+}
+
+/* Resumen */
+.resumen {
+  margin-top: 1rem;
   font-weight: 600;
-
-  /* Animación suave en hover */
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-style: italic;
 }
 
-.btn-buscar.boton-footer:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+/* Pie de página */
+.pie {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
 }
 
+.botones-footer {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
 
-/* Texto de copyright */
+.btn-footer {
+  background-color: var(--azul-marino);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-footer:hover {
+  background-color: #05213a;
+  transform: scale(1.05);
+}
+
 .copyright {
-  margin-top: 0.75rem;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-top: 1rem;
 }
 
-/* Animación de entrada suave para las tarjetas */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+/* Responsive */
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 0 1rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .botones-footer {
+    flex-direction: column;
   }
 }
-
